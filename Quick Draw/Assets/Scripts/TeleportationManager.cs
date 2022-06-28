@@ -4,30 +4,33 @@ using UnityEngine.Events;
 
 public class TeleportationManager : MonoBehaviour
 {
-    public GameObject baseController, teleportationGameObject;
+    [SerializeField] private InputActionReference teleportActivationButton;
 
-    public InputActionReference teleportActivationReference;
-
-    public UnityEvent onTeleportActivate;
-    public UnityEvent onTeleportCancel;
+    public UnityEvent onTeleportActivate, onTeleportCancel;
     
-    private void Start()
+    private void OnEnable()
     {
-        teleportActivationReference.action.performed += TeleportModeActivate;
-        teleportActivationReference.action.canceled += TeleportModeCancel;
-    }  
-
-    private void TeleportModeActivate(InputAction.CallbackContext obj)
+        teleportActivationButton.action.performed += ActivateTeleport;
+        teleportActivationButton.action.canceled += DeactivateTeleport;
+    }
+    private void OnDisable()
     {
-       onTeleportActivate.Invoke();
+        teleportActivationButton.action.performed -= ActivateTeleport;
+        teleportActivationButton.action.canceled -= DeactivateTeleport;
     }
 
-    private void DeactivateTeleporter()
+    private void ActivateTeleport(InputAction.CallbackContext obj)
+    {
+        onTeleportActivate.Invoke();
+    }
+    
+    private void DeactivateTeleport(InputAction.CallbackContext obj)
+    {
+        Invoke(nameof(TurnOffTeleport),.1f);
+    }
+
+    private void TurnOffTeleport()
     {
         onTeleportCancel.Invoke();
-    }
-    private void TeleportModeCancel(InputAction.CallbackContext obj)
-    {
-        Invoke(nameof(DeactivateTeleporter),.1f);
     }
 }

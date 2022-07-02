@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Quick Draw/Assets/Scenes/SampleScene.meta
 guid: bf7d37ec66df5fb4db2834dc2a0593b6
+========
+guid: 0dd241f7a89af7049936ca9c83f1d2d7
+>>>>>>>> f3be3271c1b6dad29824bcbad96b4bb080db0527:Quick Draw/Assets/VR Hands/HandScripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

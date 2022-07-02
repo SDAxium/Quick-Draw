@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Quick Draw/Assets/Scenes/Main_Menu/ReflectionProbe-0.exr.meta
 guid: 4b89aed930b196b4092280eb98737129
+========
+guid: 45d99164b33a1a54f9476a3877c19e42
+>>>>>>>> f3be3271c1b6dad29824bcbad96b4bb080db0527:Quick Draw/Assets/VR Hands/Textures/Hand_HandsDefault_AlbedoTransparency.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -32,12 +36,21 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<<< HEAD:Quick Draw/Assets/Scenes/Main_Menu/ReflectionProbe-0.exr.meta
     filterMode: 2
     aniso: 0
     mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
+========
+    filterMode: -1
+    aniso: 2
+    mipBias: -100
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+>>>>>>>> f3be3271c1b6dad29824bcbad96b4bb080db0527:Quick Draw/Assets/VR Hands/Textures/Hand_HandsDefault_AlbedoTransparency.png.meta
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
@@ -65,12 +78,77 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+<<<<<<<< HEAD:Quick Draw/Assets/Scenes/Main_Menu/ReflectionProbe-0.exr.meta
     compressionQuality: 100
     crunchedCompression: 0
+========
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+>>>>>>>> f3be3271c1b6dad29824bcbad96b4bb080db0527:Quick Draw/Assets/VR Hands/Textures/Hand_HandsDefault_AlbedoTransparency.png.meta
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0

@@ -5,23 +5,19 @@ using UnityEngine;
 
 public class TargetActivator : MonoBehaviour
 {
-    public AudioClip blindPing;
-    public AudioClip spawnSound;
-
     void Start()
     {
         
     }
 
+    /*
+     * On collision with another object, deactivate current game object for 5 seconds
+     */
     private void OnCollisionEnter(Collision other)
     {
-        gameObject.SetActive(false);
-        Invoke(nameof(turnBackOn),5f);
+        if (other.gameObject.CompareTag("PlayerBullet"))
+        {
+            gameObject.SetActive(false);    
+        }
     }
-
-    void turnBackOn()
-    {
-        gameObject.SetActive(true);
-    }
-   
 }

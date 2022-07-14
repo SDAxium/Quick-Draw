@@ -10,39 +10,63 @@ public class TargetController : MonoBehaviour
     public List<GameObject> activeTargets = new List<GameObject>();
 
     public GameObject bulletTargetPrefab;
+
+    public bool stopSimul = true;
     // Start is called before the first frame update
     void Start()
     {
-        StartSimulation();
+        //StartCoroutine(TargetSpawning());
+        Invoke(nameof(StartSimulation),5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (activeTargets.Count <= 0) return;
-
-        foreach (var target in activeTargets)
+        if (activeTargets.Count > 0)
         {
-            target.GetComponent<BulletTarget>().UpdateLocation();
-            if (CheckIfTargetOutOfRange(target))
+            foreach (var target in activeTargets)
             {
-                PutAwayTarget(target);
+                target.GetComponent<HitTarget>().UpdateLocation();
             }
         }
+        /*if (activeTargets.Count >= 20)
+        {
+            for(var i = activeTargets.Count-1; i > 0;i--)
+            {
+                var target = activeTargets[i];
+                PutAwayTarget(target);
+            }
+        }*/
     }
-
+    
     private IEnumerator TargetSpawning()
     {
-        while (activeTargets.Count < 20)
+        if (stopSimul)
         {
-            Debug.Log("Spawning new Target");
-            GameObject bt = Instantiate(bulletTargetPrefab);
-            BulletTarget btScript = bt.GetComponent<BulletTarget>();
-            btScript.SetNewRandomValues();
-            activeTargets.Add(bt);
-            Debug.Log("Target Spawned at: " + bt.transform.position);
-            yield return new WaitForSeconds(3f);
+            StopCoroutine(nameof(TargetSpawning));
+            yield break;
         }
+        if (activeTargets.Count >= 20) yield return new WaitUntil(() => activeTargets.Count < 20);
+        GameObject bulletTarget;
+        HitTarget btScript;
+        if (inactiveTargets.Count > 0)
+        {
+            bulletTarget = inactiveTargets[0];
+            bulletTarget.SetActive(true);
+            btScript = bulletTarget.GetComponent<HitTarget>();
+            btScript.SetNewRandomValues();
+            inactiveTargets.Remove(bulletTarget);
+        }
+        else
+        {
+            bulletTarget = Instantiate(bulletTargetPrefab);
+            btScript = bulletTarget.GetComponent<HitTarget>();
+            btScript.SetNewRandomValues();
+            
+        }
+        activeTargets.Add(bulletTarget);
+        yield return new WaitForSeconds(3f);
+        yield return TargetSpawning();
     }
 
     private bool CheckIfTargetOutOfRange(GameObject target)
@@ -56,6 +80,7 @@ public class TargetController : MonoBehaviour
     }
     private void PutAwayTarget(GameObject target)
     {
+        Debug.Log("Putting Away a Target");
         activeTargets.Remove(target);
         inactiveTargets.Add(target);
         target.SetActive(false);
@@ -63,11 +88,19 @@ public class TargetController : MonoBehaviour
     
     public void StartSimulation()
     {
+        Debug.Log("Starting Simulation");
+        stopSimul = false;
         StartCoroutine(TargetSpawning());
     }
     
     public void EndSimulation()
     {
-        StopCoroutine(TargetSpawning());
+        Debug.Log("Ending Simulation");
+        stopSimul = true;
+        for(var i = activeTargets.Count-1; i > 0;i--)
+        {
+            var target = activeTargets[i];
+            PutAwayTarget(target);
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GunController : MonoBehaviour
+public class BulletController : MonoBehaviour
 {
     public float speed = 40;
     public GameObject bulletPrefab;
@@ -54,14 +54,14 @@ public class GunController : MonoBehaviour
         {
             bullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
             AudioSource.PlayClipAtPoint(audioClip,barrel.position);
-            StartCoroutine(PutAway(5f, bullet));
+            StartCoroutine(PutAway(bullet));
         }
     }
 
     // After a certain amount of time passes, disables bullet 
-    private IEnumerator PutAway(float waitTime, GameObject bullet)
+    private IEnumerator PutAway(GameObject bullet)
     {
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(5f);
         bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _activeBullets.Remove(bullet);
         _inactiveBullets.Add(bullet);

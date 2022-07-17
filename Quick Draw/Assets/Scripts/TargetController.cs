@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class TargetController : MonoBehaviour
 {
@@ -11,92 +9,78 @@ public class TargetController : MonoBehaviour
 
     public GameObject bulletTargetPrefab;
 
-    public bool stopSimul = true;
+    public bool simulationOn = false;
     // Start is called before the first frame update
     void Start()
     {
         //StartCoroutine(TargetSpawning());
-        Invoke(nameof(StartSimulation),5f);
+        //Invoke(nameof(StartSimulation),0.5f);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        if (activeTargets.Count > 0)
+        if (activeTargets.Count <= 0) return;
+        // ReSharper disable once ForCanBeConvertedToForeach
+        for(var index = 0; index < activeTargets.Count; index++)
         {
-            foreach (var target in activeTargets)
+            var target = activeTargets[index]; // The target parent object
+            // Target child object. The parent is being used because all of its transforms are at default
+           // var targetChild = target.transform.GetChild(0).gameObject; 
+            if (!target.GetComponent<HitTarget>().targetActive)
             {
-                target.GetComponent<HitTarget>().UpdateLocation();
-            }
-        }
-        /*if (activeTargets.Count >= 20)
-        {
-            for(var i = activeTargets.Count-1; i > 0;i--)
-            {
-                var target = activeTargets[i];
+                Debug.Log("HIT");
                 PutAwayTarget(target);
+                continue;
             }
-        }*/
+            target.GetComponent<HitTarget>().UpdateLocation();
+        }
     }
     
     private IEnumerator TargetSpawning()
     {
-        if (stopSimul)
+        if (!simulationOn)
         {
             StopCoroutine(nameof(TargetSpawning));
             yield break;
         }
-        if (activeTargets.Count >= 20) yield return new WaitUntil(() => activeTargets.Count < 20);
+        
+        // If active target list is full, wait until it isn't
+        if (activeTargets.Count >= 20) yield return new WaitUntil(() => activeTargets.Count < 20); 
+       
         GameObject bulletTarget;
-        HitTarget btScript;
         if (inactiveTargets.Count > 0)
         {
             bulletTarget = inactiveTargets[0];
-            bulletTarget.SetActive(true);
-            btScript = bulletTarget.GetComponent<HitTarget>();
-            btScript.SetNewRandomValues();
             inactiveTargets.Remove(bulletTarget);
         }
         else
         {
             bulletTarget = Instantiate(bulletTargetPrefab);
-            btScript = bulletTarget.GetComponent<HitTarget>();
-            btScript.SetNewRandomValues();
-            
         }
+        bulletTarget.GetComponent<HitTarget>().SetNewRandomValues();
         activeTargets.Add(bulletTarget);
+        bulletTarget.SetActive(true);
         yield return new WaitForSeconds(3f);
         yield return TargetSpawning();
     }
-
-    private bool CheckIfTargetOutOfRange(GameObject target)
-    {
-        var position = target.transform.position;
-        float x = Mathf.Abs(position.x);
-        float y = Mathf.Abs(position.y);
-        float z = Mathf.Abs(position.z);
-
-        return x > 50 || y > 50 || z > 50;
-    }
+    
     private void PutAwayTarget(GameObject target)
     {
-        Debug.Log("Putting Away a Target");
-        activeTargets.Remove(target);
-        inactiveTargets.Add(target);
-        target.SetActive(false);
+        activeTargets.Remove(target); // Remove from active targets
+        inactiveTargets.Add(target); // Add to inactive targets
+        target.SetActive(false); // Turn target visibility off
     }
     
     public void StartSimulation()
     {
-        Debug.Log("Starting Simulation");
-        stopSimul = false;
+        simulationOn = true;
         StartCoroutine(TargetSpawning());
     }
     
     public void EndSimulation()
     {
-        Debug.Log("Ending Simulation");
-        stopSimul = true;
+        simulationOn = false;
         for(var i = activeTargets.Count-1; i > 0;i--)
         {
             var target = activeTargets[i];

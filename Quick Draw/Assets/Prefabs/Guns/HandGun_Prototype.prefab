@@ -192,11 +192,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a088965a32d0ae4eaf7daade1ed115c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
-  bullet: {fileID: 4079661161675011244, guid: a673ad3bc710ae8438ca9c8d1f9d9637, type: 3}
+  bulletPrefab: {fileID: 4079661161675011244, guid: a673ad3bc710ae8438ca9c8d1f9d9637,
+    type: 3}
   barrel: {fileID: 6943931960974575067}
   audioSource: {fileID: 6943931959041003748}
   audioClip: {fileID: 8300000, guid: 52470ae918eb7a1469fd0bf745fa2ee2, type: 3}
+  inactiveBullets: []
+  activeBullets: []
 --- !u!82 &6943931959041003748
 AudioSource:
   m_ObjectHideFlags: 0

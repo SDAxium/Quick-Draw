@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class HitTarget : MonoBehaviour
@@ -24,6 +20,24 @@ public class HitTarget : MonoBehaviour
 
     private int _oscillationCase;
 
+    public bool targetActive;
+
+    // public bool notMoving;
+    private void Awake()
+    {
+        targetActive = true;
+    }
+
+    private void Start()
+    { 
+        // notMoving = true;
+        // TargetController ts = GameObject.Find("Target Controller").GetComponent<TargetController>();
+        // if (!ts.activeTargets.Contains(gameObject))
+        // {
+        //      ts.activeTargets.Add(gameObject);
+        // }
+    }
+
     public void SetNewRandomValues()
     {
         if (!player)
@@ -39,6 +53,10 @@ public class HitTarget : MonoBehaviour
     }
     public void UpdateLocation()
     {
+        // if (notMoving)
+        // {
+        //     return;
+        // }
         _timer += Time.deltaTime*_targetSpeed;
         float horizontalRotation;
         float verticalRotation;
@@ -49,25 +67,31 @@ public class HitTarget : MonoBehaviour
                 horizontalRotation = Mathf.Cos(_timer) * _rotationWidth + rotationCenterX;
                 verticalRotation = Mathf.Sin(_timer) * _rotationHeight + rotationCenterY;
                 transform.position = new Vector3(horizontalRotation, verticalRotation, rotationCenterZ);
+                transform.LookAt(player.transform);
+                transform.Rotate(Vector3.right,90f);
                 break;
             case 2:
                 horizontalRotation = Mathf.Cos(_timer) * _rotationWidth + rotationCenterX;
                 verticalRotation = Mathf.Sin(_timer) * _rotationHeight + rotationCenterZ;
                 transform.position = new Vector3(horizontalRotation, rotationCenterY, verticalRotation);
+                transform.LookAt(player.transform);
+                transform.Rotate(Vector3.right,90f);
                 break;
             case 3:
                 horizontalRotation = Mathf.Cos(_timer) * _rotationWidth + rotationCenterY;
                 verticalRotation = Mathf.Sin(_timer) * _rotationHeight + rotationCenterZ;
                 transform.position = new Vector3(rotationCenterX, verticalRotation, horizontalRotation);
+                transform.LookAt(player.transform);
+                transform.Rotate(Vector3.right,90f);
                 break;
             default:
                 horizontalRotation = Mathf.Cos(_timer) * _rotationWidth + rotationCenterX;
                 verticalRotation = Mathf.Sin(_timer) * _rotationHeight + rotationCenterY;
                 transform.position = new Vector3(horizontalRotation, verticalRotation, rotationCenterZ);
+                transform.LookAt(player.transform);
+                transform.Rotate(Vector3.right,90f);
                 break;
         }
-        transform.LookAt(new Vector3(rotationCenterX,rotationCenterY,rotationCenterZ));
-        
     }
 
     private void SetRotationCenter(Transform playerTransform)
@@ -80,16 +104,8 @@ public class HitTarget : MonoBehaviour
     
     public void OnCollisionEnter(Collision other)
     {
-        if (!other.gameObject.CompareTag("PlayerBullet")) return;
-        Debug.Log("Hit by Bullet!");
-        _rotationHeight = 0;
-        _rotationWidth = 0;
-        _targetSpeed = 0;
-        rotationCenterX = 20;
-        rotationCenterY = 20;
-        rotationCenterZ = 20;
-        transform.position = new Vector3(rotationCenterX, rotationCenterY, rotationCenterZ);
-        gameObject.SetActive(false);
+        if (!other.gameObject.CompareTag("Bullet")) return;
+        targetActive = false;
     }
     
 }

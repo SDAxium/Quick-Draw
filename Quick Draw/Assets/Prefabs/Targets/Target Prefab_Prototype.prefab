@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7890885461937262136}
   - component: {fileID: 7890885461937262137}
   - component: {fileID: 7890885461937262134}
+  - component: {fileID: 3483280121221850329}
   m_Layer: 0
   m_Name: Target
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7890885461937262133}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.14, y: 0.015, z: 1.14}
   m_Children: []
   m_Father: {fileID: 922930186138245863}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7890885461937262136
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -96,6 +97,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: -1
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3483280121221850329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890885461937262133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d506e1d910dd404384cabeaea5792c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blindPing: {fileID: 0}
+  spawnSound: {fileID: 0}
+  player: {fileID: 0}
+  rotationCenterX: 0
+  rotationCenterY: 0
+  rotationCenterZ: 0
+  targetActive: 0
 --- !u!1 &8009178271115240700
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,10 +125,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 922930186138245863}
-  - component: {fileID: 1590714034827360528}
   m_Layer: 0
-  m_Name: Target Prefab
-  m_TagString: Untagged
+  m_Name: Target Prefab_Prototype
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,21 +147,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1590714034827360528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009178271115240700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d506e1d910dd404384cabeaea5792c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blindPing: {fileID: 0}
-  spawnSound: {fileID: 0}
-  player: {fileID: 0}
-  rotationCenterX: 0
-  rotationCenterY: 0
-  rotationCenterZ: 0

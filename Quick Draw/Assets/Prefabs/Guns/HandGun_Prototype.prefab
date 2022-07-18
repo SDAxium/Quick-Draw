@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6943931959041003739}
   - component: {fileID: 6943931959041003738}
   - component: {fileID: 6943931959041003737}
-  - component: {fileID: 6943931959041003749}
   - component: {fileID: 6943931959041003748}
+  - component: {fileID: -5117323600849343092}
   m_Layer: 6
   m_Name: HandGun_Prototype
   m_TagString: Untagged
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6943931959041003749}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GunScript, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 1
@@ -180,25 +180,6 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
---- !u!114 &6943931959041003749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6943931959041003736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a088965a32d0ae4eaf7daade1ed115c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4079661161675011244, guid: a673ad3bc710ae8438ca9c8d1f9d9637,
-    type: 3}
-  barrel: {fileID: 6943931960974575067}
-  audioSource: {fileID: 6943931959041003748}
-  audioClip: {fileID: 8300000, guid: 52470ae918eb7a1469fd0bf745fa2ee2, type: 3}
-  inactiveBullets: []
-  activeBullets: []
 --- !u!82 &6943931959041003748
 AudioSource:
   m_ObjectHideFlags: 0
@@ -295,6 +276,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5117323600849343092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6943931959041003736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1410baae81f084d8605edeeba0cf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4079661161675011244, guid: a673ad3bc710ae8438ca9c8d1f9d9637,
+    type: 3}
+  bulletController: {fileID: 0}
+  bulletSpawnPoint: {fileID: 6943931960974575067}
+  audioSource: {fileID: 6943931959041003748}
+  audioClip: {fileID: 8300000, guid: 52470ae918eb7a1469fd0bf745fa2ee2, type: 3}
 --- !u!1 &6943931959087988003
 GameObject:
   m_ObjectHideFlags: 0

@@ -1971,12 +1971,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718527288}
   m_CullTransparentMesh: 1
---- !u!4 &730678450 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6943931960974575067, guid: e117a6afe139c284b8e711f262870875,
-    type: 3}
-  m_PrefabInstance: {fileID: 6943931960774852356}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &735516990 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7873123973771800515, guid: 5634fb41b46aa1342a8b20001e6ba867,
@@ -3681,6 +3675,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1831128313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5117323600849343092, guid: e117a6afe139c284b8e711f262870875,
+    type: 3}
+  m_PrefabInstance: {fileID: 6943931960774852356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1410baae81f084d8605edeeba0cf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1833766479
 GameObject:
   m_ObjectHideFlags: 0
@@ -4079,16 +4085,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055341529}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a088965a32d0ae4eaf7daade1ed115c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4079661161675011244, guid: a673ad3bc710ae8438ca9c8d1f9d9637,
     type: 3}
-  barrel: {fileID: 730678450}
-  audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
   inactiveBullets: []
   activeBullets: []
 --- !u!4 &2055341531
@@ -4471,6 +4474,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5117323600849343092, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: bulletController
+      value: 
+      objectReference: {fileID: 2055341529}
     - target: {fileID: 6943931959041003736, guid: e117a6afe139c284b8e711f262870875,
         type: 3}
       propertyPath: m_Name
@@ -4481,6 +4489,21 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 223974228}
+    - target: {fileID: 6943931959041003737, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1831128313}
+    - target: {fileID: 6943931959041003737, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943931959041003737, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gun, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6943931959041003739, guid: e117a6afe139c284b8e711f262870875,
         type: 3}
       propertyPath: m_RootOrder
@@ -4536,12 +4559,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6943931959041003749, guid: e117a6afe139c284b8e711f262870875,
-        type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 4079661161675011244, guid: a673ad3bc710ae8438ca9c8d1f9d9637,
-        type: 3}
     - target: {fileID: 6943931960974575067, guid: e117a6afe139c284b8e711f262870875,
         type: 3}
       propertyPath: m_LocalPosition.z

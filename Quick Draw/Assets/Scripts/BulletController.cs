@@ -4,48 +4,38 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public Transform barrel;
-    public AudioSource audioSource;
-    public AudioClip audioClip;
-
+    
     public List<GameObject> inactiveBullets = new List<GameObject>();
     public List<GameObject> activeBullets = new List<GameObject>();
 
     private void Start()
     {
-       //InvokeRepeating(nameof(Fire),3,5);
+       
     }
 
-    private void Update()
-    {
-        if(activeBullets.Count > 0) UpdateBullets();
-    }
-
-    /*
-     * Fires a Bullet
-     * If there are any inactive bullets, an inactive bullet is taken and removed from the inactive list
-     * If there are no inactive bullets, a new bullet is instantiated
-     */
-    public void Fire()
+    public GameObject GetBullet()
     {
         GameObject bullet;
+        
         if (inactiveBullets.Count > 0)
         {
             bullet = inactiveBullets[0];
             bullet.SetActive(true);
-            bullet.transform.position = barrel.position;
-            bullet.transform.rotation = barrel.rotation;
             inactiveBullets.Remove(bullet);
             activeBullets.Add(bullet);
         }
         else
         {
-            bullet = Instantiate(bulletPrefab, barrel.position, barrel.rotation);
+            bullet = Instantiate(bulletPrefab);
             activeBullets.Add(bullet);
         }
         
         bullet.GetComponent<Bullet>().active = true;
-        AudioSource.PlayClipAtPoint(audioClip,barrel.position);
+        return bullet;
+    }
+    private void Update()
+    {
+        if(activeBullets.Count > 0) UpdateBullets();
     }
 
     // ReSharper disable Unity.PerformanceAnalysis

@@ -1,5 +1,8 @@
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class GameManager : MonoBehaviour
 {
     //Instance of the game manager
@@ -30,7 +33,8 @@ public class GameManager : MonoBehaviour
     {
         if(!GameObject.FindWithTag("Player"))
         {
-            Instantiate(player);
+            player = Instantiate(player);
+            instance.GetComponent<LocomotionSystem>().xrOrigin = player.GetComponent<XROrigin>();
         }
     }
 

@@ -45,6 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inactiveTargets: []
   activeTargets: []
-  bulletTargetPrefab: {fileID: 8009178271115240700, guid: 1dde952dee0ae3a4fa8ff541bdd843c3,
+  oscillatingTargetPrefab: {fileID: 256828259009025385, guid: ea3721918f524fe4896be7164e51bb23,
     type: 3}
+  strafingTargetPrefab: {fileID: 256828259009025385, guid: 47aea41f6a24fbe4badd6cec6c61a789,
+    type: 3}
+  bulletTargetPrefab: {fileID: 0}
   simulationOn: 0

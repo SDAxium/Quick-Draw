@@ -21,14 +21,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_Head_Alpha
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: e4b98bfbff4623c48b3f4d15dd049352,
+    type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -119,8 +119,21 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_18e2972014fb42728357a6d4508a9595: {r: 0.26034167, g: 0.7363219, b: 0.9716981,
+        a: 0}
+    - Color_334eaba52226406f9a15629af0f9e8ce: {r: 1, g: 0, b: 0.6156864, a: 0}
+    - Color_e75c3aef18f944d797d2f0842da1c6ab: {r: 0.8207547, g: 0.8207547, b: 0.8207547,
+        a: 0}
+    - Vector3_f765ee60d3fb4498bc05a241b36f9e99: {r: 0, g: 0, b: 0, a: 0}
+    - Vector4_01ef22cbb7bf4189b05880398e3299dc: {r: 0, g: 0, b: 0, a: 0}
+    - Vector4_c09abc61010f48039178008af0091b4b: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.31505865, g: 0.59300756, b: 0.9433962, a: 1}
     - _Color: {r: 0.31505868, g: 0.5930076, b: 0.9433962, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _sonarAddColor: {r: 0, g: 0, b: 0, a: 0}
+    - _sonarBaseColor: {r: 0.8301887, g: 0, b: 0.5091086, a: 0}
+    - _sonarWaveColor: {r: 0.26034167, g: 0.7363219, b: 0.9716981, a: 0}
+    - _sonarWaveParams: {r: 0, g: 0, b: 0, a: 0}
+    - _sonarWaveVector: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -7,13 +7,12 @@ namespace Multiplayer
 {
     public class NetworkManager : MonoBehaviourPunCallbacks
     {
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-            
+            ConnectToServer();
         }
 
-        private void ConnectedToServer()
+        public void ConnectToServer()
         {
             PhotonNetwork.ConnectUsingSettings();
             Debug.Log("Connecting to server");
@@ -26,7 +25,7 @@ namespace Multiplayer
 
             var roomOptions = new RoomOptions
             {
-                MaxPlayers = 3,
+                MaxPlayers = 2,
                 IsVisible = true,
                 IsOpen = true
             };

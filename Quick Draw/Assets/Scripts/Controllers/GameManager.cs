@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
     {
         if(!GameObject.FindWithTag("Player"))
         {
-            player = Instantiate(player);
-            instance.GetComponent<LocomotionSystem>().xrOrigin = player.GetComponent<XROrigin>();
+            //player = Instantiate(player);
+            //instance.GetComponent<LocomotionSystem>().xrOrigin = player.GetComponent<XROrigin>();
         }
     }
 

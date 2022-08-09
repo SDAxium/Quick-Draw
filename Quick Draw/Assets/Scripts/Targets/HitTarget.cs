@@ -15,7 +15,7 @@ namespace Targets
         public bool targetActive;
 
         protected float TargetSpeed;
-        // public bool notMoving;
+        
         private void Awake()
         {
             targetActive = true;

@@ -42,7 +42,6 @@ public class TargetController : MonoBehaviour
            // var targetChild = target.transform.GetChild(0).gameObject; 
             if (!target.GetComponent<HitTarget>().targetActive)
             {
-                Debug.Log("HIT");
                 PutAwayTarget(target);
                 continue;
             }
@@ -127,8 +126,9 @@ public class TargetController : MonoBehaviour
                 break;
         }
         bulletTarget.GetComponent<HitTarget>().SetNewRandomValues();
-        activeTargets.Add(bulletTarget);
+        bulletTarget.GetComponent<HitTarget>().targetActive = true;
         bulletTarget.SetActive(true);
+        activeTargets.Add(bulletTarget);
         yield return new WaitForSeconds(3f);
         yield return TargetSpawning();
     }

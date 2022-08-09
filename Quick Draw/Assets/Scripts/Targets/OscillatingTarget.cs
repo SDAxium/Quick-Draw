@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Targets
 {
@@ -15,7 +17,7 @@ namespace Targets
         public override void SetNewRandomValues()
         {
             Timer = Random.Range(0, 181);
-            TargetSpeed = Random.Range(1, 3);
+            TargetSpeed = Random.Range(1, 16)/10.0f;
             _rotationHeight = Random.Range(4, 16);
             _rotationWidth = Random.Range(4, 16);
             _oscillationCase = Random.Range(1, 4);

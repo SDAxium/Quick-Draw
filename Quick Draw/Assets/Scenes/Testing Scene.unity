@@ -2671,6 +2671,20 @@ Transform:
   m_Father: {fileID: 40919615}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1528601284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1257663743548788654, guid: d7ffae72ba4302b4d85deadb8171669f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1409652746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1528601290
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528601284}
+  m_Enabled: 1
 --- !u!1 &1535340213
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,6 +3268,39 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5117323600849343092, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: gunShot
+      value: 
+      objectReference: {fileID: 8300000, guid: 52470ae918eb7a1469fd0bf745fa2ee2, type: 3}
+    - target: {fileID: -5117323600849343092, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: magazineMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -5117323600849343092, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: magazineCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -5117323600849343092, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: reloadInputActionReference
+      value: 
+      objectReference: {fileID: -9040763159073675619, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: -5117323600849343092, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: reloadInputActionReferenceLeft
+      value: 
+      objectReference: {fileID: -9040763159073675619, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: -5117323600849343092, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: reloadInputActionReferenceRight
+      value: 
+      objectReference: {fileID: -7508129450654155458, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
     - target: {fileID: 6943931959041003736, guid: e117a6afe139c284b8e711f262870875,
         type: 3}
       propertyPath: m_Name
@@ -3348,6 +3395,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943931959041003748, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943931959041003748, guid: e117a6afe139c284b8e711f262870875,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6943931959087988003, guid: e117a6afe139c284b8e711f262870875,
         type: 3}

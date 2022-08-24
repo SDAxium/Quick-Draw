@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+using Photon.Realtime;
+using Unity.XR.CoreUtils;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Controllers
 {
@@ -31,11 +35,10 @@ namespace Controllers
 
         void Start()
         {
-            if(!GameObject.FindWithTag("Player"))
-            {
-                //player = Instantiate(player);
-                //instance.GetComponent<LocomotionSystem>().xrOrigin = player.GetComponent<XROrigin>();
-            }
+            if (GameObject.FindWithTag("Player")) return;
+            player = GameObject.Find("Network Manager") ? PhotonNetwork.Instantiate(player.name,Vector3.zero, Quaternion.identity) : Instantiate(player);
+            instance.GetComponent<LocomotionSystem>().xrOrigin = player.GetComponent<XROrigin>();
+            DontDestroyOnLoad(player);
         }
 
         void Update()
